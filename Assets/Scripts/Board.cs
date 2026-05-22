@@ -22,7 +22,7 @@ public class Board : MonoBehaviour
 
                 Instantiate(
                     cellPrefab,
-                    position,
+                    position+new Vector2(-3.1f, -2.78f),
                     Quaternion.identity,
                     transform
                 );
