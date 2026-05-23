@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public int currentPlayer = 1;
+
+    public bool gameEnded = false;
 
     void Awake()
     {
@@ -22,6 +25,15 @@ public class GameManager : MonoBehaviour
             currentPlayer = 1;
         }
 
+        UIManager.Instance.UpdateTurnText(currentPlayer);
+
         Debug.Log("Jogador atual: " + currentPlayer);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().name
+        );
     }
 }
